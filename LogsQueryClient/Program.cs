@@ -6,12 +6,17 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        string tenantId = "";
-        string clientId = "";
-        string clientSecret = "";
-        string workspaceId = "";
-        string query = "AzureDiagnostics | where ResourceProvider =~ 'MICROSOFT.KEYVAULT'|where OperationName =='SecretGet' | where identity_claim_scp_s == 'user_impersonation' | where httpStatusCode_d == 200 ";
-
+        string tenantId = "<your tenant id>";
+        string clientId = "<your client id>";
+        string clientSecret = "<your client secret>";
+        string workspaceId = "<your workspace id>";
+        string query = "your query goes here";
+        
+        /*
+        n this code, you need to replace <your tenant id>, <your client id>, <your client secret>, and <your workspace id> 
+        with your Azure AD tenant ID, client ID, client secret, and workspace ID, respectively. You also need to 
+        replace "your query goes here" with the actual query you want to run. */
+        
         var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
         var client = new LogsQueryClient(credential);
 
